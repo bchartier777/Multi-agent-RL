@@ -4,7 +4,7 @@ This is a modified implementation of Multi-agent Deep Deterministic Policy Gradi
 ## Summary of changes
 The primary purpose of this implementation was to evaluate the benefit of the following changes to average return:
  - Added second Actor/Critic network, Actor_v2, Critic_v2, implemeting additional stacked linear layers with an optional BatchNorm1d (BatchNorm1d is not yet working).  Also implements user-defined fc1 and fc2 unit size
- - Added third recurrent Actor and Critic, Actor_v3 and Critic_v3, implementing an LSTM.  The algorithm is executing but the return does not converge since additional modifications are required to the replay buffer and Q calculations.
+ - Added third recurrent Actor/Critic network, Actor_v3 and Critic_v3, implementing an LSTM.  The algorithm is executing but the return does not converge since additional modifications are required to the replay buffer and Q calculations.
  - Added an optional Gumbel softmax to the action. This only works with the original Actor / Critic_MADDPG networks.
  - Added optional noise from an Ornstein–Uhlenbeck process, in addition to the Gaussian noise.
  - Added an optional execution of user-defined number of random samples from the action space prior to choosing actions from the network
