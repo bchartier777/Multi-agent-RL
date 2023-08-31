@@ -6,8 +6,8 @@ The primary purpose of this implementation was to evaluate the benefit of the fo
  - Added second Actor/Critic network, Actor_v2, Critic_v2, implemeting additional stacked linear layers with an optional BatchNorm1d (BatchNorm1d is not yet working).  Also implements user-defined fc1 and fc2 unit size
  - Added third recurrent Actor and Critic, Actor_v3 and Critic_v3, implementing an LSTM.  The algorithm is executing but the return does not converge since additional modifications are required to the replay buffer and Q calculations.
  - Added an optional Gumbel softmax to the action. This only works with the original Actor / Critic_MADDPG networks.
- - Added an optional noise from an Ornstein–Uhlenbeck process, in addition to the Gaussian noise.
- - Added an optional execution of user-defined random samples from the action space prior to choosing actions from the network (line 72 of main.py of simple repo)
+ - Added optional noise from an Ornstein–Uhlenbeck process, in addition to the Gaussian noise.
+ - Added an optional execution of user-defined number of random samples from the action space prior to choosing actions from the network
  - Enabled AdamW optimizer
  - Minor changes to enable execution of additional MPE scenarios as well as limited refactoring to enable diagnostics
 
@@ -38,6 +38,7 @@ All execution parameters are implemented in parse_args in utils.py.  Following i
 python MADDPG_MATD3_main.py --env_name simple_speaker_listener  1>ExecOut\stdOutMADDPG_SimpSpeak.txt  2>ExecOut\stdErrMADDPG_SimpSpeak.txt```
 
 Other examples are in in Exec1.bat.
+```
 
 ## Outputs
 The return at each timestep is output to the terminal.  Have not yet integrated Tensorboard or average return graph generation.
@@ -45,7 +46,7 @@ The return at each timestep is output to the terminal.  Have not yet integrated 
 ## Results
 Executing with Actor_v2, Critic_v2, the average returns for simple speaker listener are similar to  Actor_v1 / Critic_v1.  One of the next steps is to quantify return with other enhancements enabled.
 
-# Next steps
+## Next steps
  - Scope integration of Multi-agent Mujoco [REF]- May require Linux, my current dev environment is Window
  - Quantify performance of subset of combination of new options with multiple Petting Zoo environments
  - Scope completion of the recurrent Actor and Critic classes, requires mods to the two primary training methods
