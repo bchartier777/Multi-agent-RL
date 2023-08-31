@@ -36,8 +36,6 @@ All execution parameters are implemented in parse_args in utils.py.  Following i
 
 ```
 python MADDPG_MATD3_main.py --env_name simple_speaker_listener  1>ExecOut\stdOutMADDPG_SimpSpeak.txt  2>ExecOut\stdErrMADDPG_SimpSpeak.txt```
-
-Other examples are in in Exec1.bat.
 ```
 
 ## Outputs
