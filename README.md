@@ -1,5 +1,5 @@
 # Modified implementation of MADDPG
-This is a modified implementation of Multi-agent Deep Deterministic Policy Gradient (MADDPG).  [This] (https://github.com/Lizhi-sjtu/MARL-code-pytorch/tree/main), developed by Lizhi Sjtu.  This is a well written implementation of multiple MARL  algorithms.<br/>
+This is a modified implementation of Multi-agent Deep Deterministic Policy Gradient (MADDPG).  [This](https://github.com/Lizhi-sjtu/MARL-code-pytorch/tree/main), developed by Lizhi Sjtu.  This is a well written implementation of multiple MARL  algorithms.<br/>
 
 ## Summary of changes
 The primary purpose of this implementation was to evaluate the benefit of the following changes to average return:
