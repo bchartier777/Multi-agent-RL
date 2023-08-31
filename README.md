@@ -8,6 +8,7 @@ The primary purpose of this implementation was to evaluate the benefit of the fo
  - Added an optional Gumbel softmax to the action. This only works with the original Actor / Critic_MADDPG networks.
  - Added an optional noise from an Ornstein–Uhlenbeck process, in addition to the Gaussian noise.
  - Added an optional execution of user-defined random samples from the action space prior to choosing actions from the network (line 72 of main.py of simple repo)
+ - Enabled AdamW optimizer
  - Minor changes to enable execution of additional MPE scenarios as well as limited refactoring to enable diagnostics
 
 ## Testing environments
