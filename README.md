@@ -51,5 +51,5 @@ Executing with Actor_v2, Critic_v2, the average returns for simple speaker liste
  - Scope completion of the recurrent Actor and Critic classes, requires mods to the two primary training methods
 
 ## References
-[1] [This] (https://github.com/Lizhi-sjtu/MARL-code-pytorch/tree/main) is the reference repo, developed by Lizhi Sjtu.
+[1] [This](https://github.com/Lizhi-sjtu/MARL-code-pytorch/tree/main) is the reference repo, developed by Lizhi Sjtu.
 [2] Lowe R, Wu Y I, Tamar A, et al. Multi-agent actor-critic for mixed cooperative-competitive environments[J]. Advances in neural information processing systems, 2017, 30.<br />
