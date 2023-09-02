@@ -12,7 +12,7 @@ The primary purpose of this implementation was to evaluate the benefit of the fo
  - Minor changes to enable execution of additional MPE scenarios as well as limited refactoring to enable diagnostics
 
 ## Testing environments
-The version of MNIST downloaded with the TorchVision Dataset object.  The return has been validated on simple_speaker_listener.  Tested for execution but not averge return on simple_tag, simple_spread, simple_push, simple_crypto and simple_adversary.  Not yet working on simple_world_comm, simple_reference and simple.
+The return has been validated on simple_speaker_listener.  Also tested for execution but not averge return on simple_tag, simple_spread, simple_push, simple_crypto and simple_adversary.  Not yet working on simple_world_comm, simple_reference and simple.
 
 ## Performance
 The return for the simple_speaker_listener environment is similar to the reference repo.  One next step is to quantify performance on the other Petting Zoo environments.
@@ -45,9 +45,9 @@ The return at each timestep is output to the terminal.  Have not yet integrated 
 Executing with Actor_v2, Critic_v2, the average returns for simple speaker listener are similar to  Actor_v1 / Critic_v1.  One of the next steps is to quantify return with other enhancements enabled.
 
 ## Next steps
- - Scope integration of Multi-agent Mujoco [REF]- May require Linux, my current dev environment is Window
+ - Scope integration of [Multi-agent Mujoco](https://github.com/Farama-Foundation/Gymnasium-Robotics). This may require Linux, since the docs state that Windows is not supported (my current dev environment is Windows).
  - Quantify performance of subset of combination of new options with multiple Petting Zoo environments
- - Scope completion of the recurrent Actor and Critic classes, requires mods to the two primary training methods
+ - Scope completion of the recurrent Actor and Critic classes, requires multiple mods to the two primary training methods
 
 ## References
 [1] [This](https://github.com/Lizhi-sjtu/MARL-code-pytorch/tree/main) is the reference repo, developed by Lizhi Sjtu.
