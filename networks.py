@@ -79,6 +79,8 @@ class Actor_v2(nn.Module):
         :param fc1_units: number of nodes in 1st hidden layer
         :param fc2_units: number of nodes in 2nd hidden layer
         :param fc3_units: number of nodes in 3rd hidden layer
+        :param fc4_units: number of nodes in 4th hidden layer
+        :param fc5_units: number of nodes in 5th hidden layer
         """
         super(Actor_v2, self).__init__()
 
@@ -106,9 +108,8 @@ class Actor_v2(nn.Module):
         self.reset_parameters()
 
     def forward(self, observation):
-        """ map a states to action values
-        :param observation: shape == (batch, observation_size)
-        :return: action values
+        """ map a state to action values
+            :return: action values
         """
 
         if self.use_batch_norm:
@@ -137,7 +138,6 @@ class Actor_v2(nn.Module):
 
 class Critic_v2(nn.Module):
     def __init__(self, args, agent_id, use_batch_norm=False,
-                 # fc1_units=64, fc2_units=64, fc3_units=64):
                  fc1_units=128, fc2_units=64, fc3_units=32):
         """ args.hidden_dim
         :param observation_size: Dimension of each state
