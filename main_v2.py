@@ -19,9 +19,7 @@ class Trainer:
         self.seed = args.seed
         # print(gym.__version__)
         if args.env_lib == 'petting_zoo': # This version is not currently supported
-            #if args.env_name == 'simple_adversary_v2':
-            self.env = simple_adversary.parallel_env(max_cycles=args.episode_limit)
-            self.env_evaluate = simple_adversary.parallel_env(max_cycles=args.episode_limit)
+            print ("Not supporting newer version of Petting Zoo with current version")
         #self.new_env.reset()
         elif args.env_lib == 'mpe':
             self.env = make_env(env_name, discrete=False)  # Continuous action space
@@ -34,7 +32,8 @@ class Trainer:
             for i in range(self.args.N):  # actions dimensions of N agents
                 self.args.action_dim_n.append(self.env.action_space[i].shape[0])
         elif args.env_lib == 'multi_mujoco':
-        # Create environment
+            # Started the integration of MuJoCo, on hold for now
+            print ("Not supporting MuJoCo with current version of this repo.")
             env_args = {"scenario": "HalfCheetah-v2",
                   "agent_conf": "2x3",
                   "agent_obsk": 0,
@@ -43,8 +42,6 @@ class Trainer:
             self.env_evaluate = MujocoMulti(env_args=env_args)
             env_info = env.get_env_info()
             n_actions = env_info["n_actions"]
-            #self.env = make_env(env_name, discrete=False)  # Continuous action space
-            #self.env_evaluate = make_env(env_name, discrete=False)
             self.args.N = env_info["n_agents"]
             self.args.obs_dim_n = [self.env.observation_space[i].shape[0] for i in range(self.args.N)]  # obs dimensions of N agents
             self.args.action_dim_n = [n_actions for i in range(self.args.N)]  # actions dimensions of N agents
@@ -64,7 +61,7 @@ class Trainer:
             print("Algorithm: MADDPG, MPE")
             self.agent_n = [MADDPG(args, agent_id) for agent_id in range(args.N)]
         elif self.args.algorithm == "MADDPG" and args.env_lib == 'petting_zoo':
-            print("Algorithm: MADDPG, Petting Zoo")
+            print ("Not supporting newer version of Petting Zoo with current version of this repo.")
             #self.agent_n = [MADDPG_PZ(args, agent_id,self.args.episode_limit,
             #    args.buffer_size, args.batch_size, args.lr_a, args.lr_c, res_dir) for agent_id in range(args.N)]
         elif self.args.algorithm == "MATD3":
@@ -76,7 +73,8 @@ class Trainer:
         if args.env_lib == 'mpe':
             self.replay_buffer = ReplayBuffer(self.args)
         else:
-            self.replay_buffer = Buffer_PZ(self.args)
+            print ("Only MPE is supported with the current version of this repo.")
+            # self.replay_buffer = Buffer_PZ(self.args)
 
         # Create a tensorboard
         self.writer = SummaryWriter(log_dir='runs/{}/{}_env_{}_model_num_{}_seed_{}'.format(self.args.algorithm, self.args.algorithm, self.env_name, self.model_num, self.seed))
@@ -135,7 +133,7 @@ class Trainer:
                      for agent, obs in zip(self.agent_n, obs_n):
                         a_n.append(agent.choose_action(self.args, obs, noise_std=0))
                 else:
-                    print ("Not supporting other env libraries for now")
+                    print ("Not supporting other env libraries with current version")
                 if (args.env_lib == 'mpe'):
                     obs_next_n, r_n, done_n, _ = self.env_evaluate.step(copy.deepcopy(a_n))
                     episode_reward += r_n[0]
