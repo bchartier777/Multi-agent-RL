@@ -96,7 +96,6 @@ class Trainer:
                     a_n = [self.env.action_space[i].sample() for i in range(self.args.N)]
                 else:
                     a_n = [agent.choose_action(self.args, obs, noise_std=self.noise_std) for agent, obs in zip(self.agent_n, obs_n)]
-                # --------------------------!!!注意！！！这里一定要deepcopy，MPE环境会把a_n乘5-------------------------------------------
                 obs_next_n, r_n, done_n, _ = self.env.step(copy.deepcopy(a_n))
                 # Store the transition
                 self.replay_buffer.store_transition(obs_n, a_n, r_n, obs_next_n, done_n)
