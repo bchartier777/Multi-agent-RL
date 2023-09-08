@@ -41,7 +41,7 @@ The requirements.txt file was generated with pipreqs, not the environment config
 All execution parameters are implemented in parse_args in utils.py.  Following is an example for the simple speaker listener environment.
 
 ```
-python MADDPG_MATD3_main.py --env_name simple_speaker_listener  1>ExecOut\stdOutMADDPG_SimpSpeak.txt  2>ExecOut\stdErrMADDPG_SimpSpeak.txt```
+python MADDPG_MATD3_main.py --env_name simple_speaker_listener  1>ExecOut\stdOutMADDPG_SimpSpeak.txt  2>ExecOut\stdErrMADDPG_SimpSpeak.txt
 ```
 
 ## Outputs
