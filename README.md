@@ -53,7 +53,7 @@ Executing with Actor_v2, Critic_v2, the average returns for simple speaker liste
 ## Next steps
  - Scope integration of [Multi-agent Mujoco](https://github.com/Farama-Foundation/Gymnasium-Robotics). This may require Linux, since the docs state that Windows is not supported (my current dev environment is Windows).
  - Quantify performance of subset of combination of new options with multiple Petting Zoo environments
- - Scope completion of the recurrent Actor and Critic classes, requires multiple mods to the two primary training methods
+ - Scope completion of the recurrent Actor and Critic classes, requires multiple mods to the two primary training methods and the replay buffer.
 
 ## References
 [1] [This](https://github.com/Lizhi-sjtu/MARL-code-pytorch/tree/main) is the reference repo, developed by Lizhi Sjtu.
