@@ -21,10 +21,10 @@ class MADDPG(object):
         self.tau = args.tau
         self.use_grad_clip = args.use_grad_clip
         # Create an individual actor and critic for each agent according to the 'agent_id'
-        #self.actor = Actor(args, agent_id)
-        self.actor = Actor_v3(args, agent_id)
-        self.critic = Critic_v3(args, agent_id)
-        #self.critic = Critic_MADDPG(args)
+        self.actor = Actor(args, agent_id)
+        #self.actor = Actor_v2(args, agent_id)
+        #self.critic = Critic_v2(args, agent_id)
+        self.critic = Critic_MADDPG(args)
         self.actor_target = copy.deepcopy(self.actor)
         self.critic_target = copy.deepcopy(self.critic)
         self.ou_noise = OUNoise(size=self.action_dim, seed=args.seed)
@@ -93,7 +93,6 @@ class MADDPG(object):
             a, logits = self.actor(batch_obs_n[self.agent_id])
             batch_a_n[self.agent_id] = F.gumbel_softmax(logits, hard=True)
         else:
-            a = self.actor(batch_obs_n[self.agent_id])
             batch_a_n[self.agent_id] = self.actor(batch_obs_n[self.agent_id])
         # Alternate working version - batch_a_n[self.agent_id] = self.actor(batch_obs_n[self.agent_id])
         actor_loss = -self.critic(batch_obs_n, batch_a_n).mean()
