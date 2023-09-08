@@ -57,4 +57,5 @@ Executing with Actor_v2, Critic_v2, the average returns for simple speaker liste
 
 ## References
 [1] [This](https://github.com/Lizhi-sjtu/MARL-code-pytorch/tree/main) is the reference repo, developed by Lizhi Sjtu.
-[2] Lowe R, Wu Y I, Tamar A, et al. Multi-agent actor-critic for mixed cooperative-competitive environments[J]. Advances in neural information processing systems, 2017, 30.<br />
+[2] MADDPG: Lowe R, Wu Y I, Tamar A, et al. Multi-agent actor-critic for mixed cooperative-competitive environments[J]. Advances in neural information processing systems, 2017, 30.<br />
+[3] MATD3: Ackermann, J., et al.  Reducing Overestimation Bias in Multi-Agent Domains Using Double Centralized Critics, 2019.  arXiv:1910.01465v2.
