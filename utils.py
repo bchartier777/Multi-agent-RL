@@ -70,7 +70,7 @@ class OUNoise:
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--max_train_steps", type=int, default=int(1e6), help=" Maximum number of training steps")
-    parser.add_argument("--env_name", type=str, default="simple_speaker_listener", help="simple_speaker_listener or simple_spread")
+    parser.add_argument("--env_name", type=str, default="simple_spread", help="simple_speaker_listener or simple_spread")
     parser.add_argument("--env_lib", type=str, default="mpe", help="petting_zoo or mpe or multi_mujoco")
     parser.add_argument("--episode_limit", type=int, default=25, help="Maximum number of steps per episode")
     parser.add_argument("--evaluate_freq", type=float, default=1000, help="Evaluate the policy every 'evaluate_freq' steps")
@@ -79,7 +79,7 @@ def parse_args():
     parser.add_argument("--gumb_softmax_action", type=bool, default=False, help="Apply Gumbel Softmax to actions, Actor, Critic_MADDPG only")
     parser.add_argument("--random_steps", type=float, default=0, help="Number of random actions")
                                         # 5e4 for full run
-    parser.add_argument("--algorithm", type=str, default="MADDPG", help="MADDPG or MATD3")
+    parser.add_argument("--algorithm", type=str, default="MATD3", help="MADDPG or MATD3")
     parser.add_argument("--buffer_size", type=int, default=int(1e6), help="The capacity of the replay buffer")
     parser.add_argument("--batch_size", type=int, default=1024, help="Batch size") # Was 1024
     parser.add_argument("--seed", type=int, default=0, help="Seed for models")
@@ -100,6 +100,7 @@ def parse_args():
     parser.add_argument("--policy_noise", type=float, default=0.2, help="Target policy smoothing")
     parser.add_argument("--noise_clip", type=float, default=0.5, help="Clip noise")
     parser.add_argument("--policy_update_freq", type=int, default=2, help="The frequency of policy updates")
+    parser.add_argument("--doubleq_minmax_update_freq", type=int, default=5, help="The frequency of policy updates")
 
     args = parser.parse_args()
     args.noise_std_decay = (args.noise_std_init - args.noise_std_min) / args.noise_decay_steps
