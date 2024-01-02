@@ -1,4 +1,4 @@
-# Modified implementation of MADDPG
+# Modified implementations of MADDPG and MATD3
 This is a modified implementation of Multi-agent Deep Deterministic Policy Gradient (MADDPG) and Multi-agent Twin Delayed Deep Deterministic Policy Gradient (MATD3).  [This](https://github.com/Lizhi-sjtu/MARL-code-pytorch/tree/main) is the reference repo, developed by Lizhi Sjtu.  This is a well written, succinct implementation of multiple MARL algorithms.<br/>
 
 ## Summary of changes
